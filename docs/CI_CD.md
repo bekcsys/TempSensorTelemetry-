@@ -67,7 +67,7 @@ Both workflows only listen to that branch (plus release tags below).
 | Pull request **into** `djangoWebApp` | Build only |
 | **Run workflow** → branch `djangoWebApp` | Yes |
 
-Does **not** run for pushes that only touch `SensorDataCollector/`.
+Does **not** run for pushes that only touch the collector (`docker/`, `publisher/`, `stack/`).
 
 ### Release WebApp
 
@@ -94,7 +94,7 @@ make rebuildwebapp-hub
 
 | Trigger | Publishes? |
 |---------|------------|
-| Push with changes under `SensorDataCollector/**` | Yes → `latest`, `djangoWebApp`, commit SHA |
+| Push with changes under `docker/`, `publisher/`, or `stack/` | Yes → `latest`, `djangoWebApp`, commit SHA |
 | Git tag `collector-v1.0.0` | Yes → Docker tag `1.0.0` |
 | Pull request **into** `djangoWebApp` | Build only |
 | **Run workflow** → branch `djangoWebApp` | Yes |
@@ -113,7 +113,6 @@ git push origin collector-v1.0.0
 Deploy on Pi:
 
 ```bash
-cd SensorDataCollector
 # .env: DOCKER_TAG=latest   (or 1.0.0)
 make startReadSensor
 ```
@@ -152,7 +151,7 @@ cd WebApp && export DOCKERHUB_USER=becktkh DOCKER_TAG=my-tag && make docker-publ
 ```
 
 ```bash
-cd SensorDataCollector && export DOCKERHUB_USER=becktkh DOCKER_TAG=my-tag && make docker-publish-collector
+export DOCKERHUB_USER=becktkh DOCKER_TAG=my-tag && make docker-publish-collector
 ```
 
 ---
@@ -172,5 +171,5 @@ cd SensorDataCollector && export DOCKERHUB_USER=becktkh DOCKER_TAG=my-tag && mak
 ## Related docs
 
 - [WebApp/docs/DOCKER_HUB.md](../WebApp/docs/DOCKER_HUB.md)
-- [SensorDataCollector/docs/DOCKER_HUB.md](../SensorDataCollector/docs/DOCKER_HUB.md)
+- [docs/DOCKER_HUB.md](DOCKER_HUB.md)
 - [WebApp/docs/DATABASE_BACKUP.md](../WebApp/docs/DATABASE_BACKUP.md)

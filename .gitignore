@@ -12,23 +12,19 @@ __pycache__/
 .env.*
 !.env.example
 
-# SensorDataCollector — generated Grafana datasource
-SensorDataCollector/stack/grafana/provisioning/datasources/influxdb.yml
+# Generated Grafana datasource
+stack/grafana/provisioning/datasources/influxdb.yml
 
-# SensorDataCollector — data outputs
-SensorDataCollector/exports/
-SensorDataCollector/Visualize/output/
+# Data outputs
+exports/
+Visualize/output/
 *.csv
 TempSensor Live-*.json
 
-# WebApp — runtime data (see WebApp/.gitignore for details)
-WebApp/data/backups/*.sql.gz
-
 # Docker
 docker-compose.override.yml
-SensorDataCollector/stack/mosquitto/data/
-SensorDataCollector/stack/mosquitto/log/
-SensorDataCollector/telegraf/telegraf.conf
+stack/mosquitto/data/
+stack/mosquitto/log/
 
 # IDE / OS
 .idea/

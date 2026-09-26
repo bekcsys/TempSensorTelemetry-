@@ -1,4 +1,4 @@
-[TempSensor](../../README.md) › [SensorDataCollector](../README.md) › Adding Sensors
+[TempSensor](../README.md) › Adding Sensors
 
 # Adding more DS18B20 sensors
 
@@ -102,7 +102,7 @@ Labels must be **unique**. They are stored as `sensor_label` in MQTT, CSV, and I
 Rebuild and restart the publisher (Docker):
 
 ```bash
-cd ~/Projects/TempSensor/SensorDataCollector
+cd ~/Projects/TempSensor
 docker compose build mqtt-publisher
 docker compose up -d mqtt-publisher
 ```
@@ -154,7 +154,7 @@ No dashboard code changes are required; the template already filters by `sensor_
 ## 6. Optional: test without Docker
 
 ```bash
-cd ~/Projects/TempSensor/SensorDataCollector
+cd ~/Projects/TempSensor
 source scripts/activate_venv.sh
 python3 publisher/sensor/ds18b20_reader.py
 ```

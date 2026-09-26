@@ -1,6 +1,6 @@
 #!/bin/sh
 # On up: archive any existing CSVs, then publish a new file.
-# On down: stop publisher, plot latest CSV (PNG name matches CSV basename).
+# Charts are written on the host by make stop.
 set -e
 
 export MPLCONFIGDIR=/tmp/matplotlib
@@ -24,20 +24,7 @@ archive_csv() {
 }
 
 plot_latest_csv() {
-  if ! ls /app/exports/*.csv >/dev/null 2>&1; then
-    echo 'No active CSV to plot.' >&2
-    return 0
-  fi
-  echo 'Generating presentation PNG...' >&2
-  if python /app/Visualize/sensorDataVisualizer.py \
-    --export-dir /app/exports \
-    --presentation \
-    --output-auto; then
-    sync_visualize_output_owner
-    return 0
-  fi
-  echo 'ERROR: Visualizer failed inside container (see traceback above).' >&2
-  return 1
+  return 0
 }
 
 archive_csv

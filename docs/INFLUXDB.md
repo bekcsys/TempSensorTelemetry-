@@ -1,4 +1,4 @@
-[TempSensor](../../README.md) › [SensorDataCollector](../README.md) › InfluxDB
+[TempSensor](../README.md) › InfluxDB
 
 # InfluxDB
 
@@ -40,7 +40,7 @@ Telegraf and Grafana read these values from `.env` at container start.
 Start with the full stack:
 
 ```bash
-cd ~/Projects/TempSensor/SensorDataCollector
+cd ~/Projects/TempSensor
 docker compose up -d
 ```
 

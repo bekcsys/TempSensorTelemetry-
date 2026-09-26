@@ -1,4 +1,4 @@
-[TempSensor](../../README.md) › [SensorDataCollector](../README.md) › Authors
+[TempSensor](../README.md) › Authors
 
 # Authors
 

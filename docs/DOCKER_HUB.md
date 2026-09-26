@@ -1,4 +1,4 @@
-[TempSensor](../../README.md) › [SensorDataCollector](../README.md) › Docker Hub
+[TempSensor](../README.md) › Docker Hub
 
 # Docker Hub — SensorDataCollector
 
@@ -8,12 +8,11 @@ Image: **`becktkh/tempsensor-mqtt-collector`** (tag from `DOCKER_TAG` in `.env`)
 
 ## Publish
 
-**Automatic:** push changes under `SensorDataCollector/` or tag `collector-v1.0.0` — workflow **Docker Hub — SensorDataCollector** — see [CI/CD](../../docs/CI_CD.md).
+**Automatic:** push collector changes or tag `collector-v1.0.0` — workflow **Docker Hub — SensorDataCollector** — see [CI/CD](CI_CD.md).
 
 **Manual:**
 
 ```bash
-cd SensorDataCollector
 export DOCKERHUB_USER=becktkh
 export DOCKER_TAG=tagname
 make docker-publish-collector

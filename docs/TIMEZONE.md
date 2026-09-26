@@ -1,4 +1,4 @@
-[TempSensor](../../README.md) › [SensorDataCollector](../README.md) › Timezone
+[TempSensor](../README.md) › Timezone
 
 # Timezone (Chicago / CDT)
 
@@ -9,7 +9,7 @@ If timestamps look **5 hours ahead** (UTC instead of local), set the Raspberry P
 From the project root:
 
 ```bash
-cd ~/Projects/TempSensor/SensorDataCollector
+cd ~/Projects/TempSensor
 sudo ./scripts/setup_timezone.sh
 ```
 

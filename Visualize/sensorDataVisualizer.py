@@ -76,7 +76,7 @@ def resolve_latest_csv(export_dir: Path) -> Path:
     candidates = [path for path in export_dir.glob(CSV_GLOB) if path.is_file()]
     if not candidates:
         raise FileNotFoundError(
-            f'No CSV in {export_dir}. Start the stack: cd SensorDataCollector && make startReadSensor'
+            f'No CSV in {export_dir}. Start the stack: make start'
         )
     return max(candidates, key=lambda path: path.stat().st_mtime)
 
@@ -394,15 +394,8 @@ class SensorDataVisualizer:
                 f'scripts/fix_visualize_output_permissions.sh'
             )
         scale = PRESENTATION_SCALE if presentation else 1
-        try:
-            figure.write_image(str(saved), scale=scale)
-            print(f'Saved plot: {saved}', flush=True)
-        except Exception as error:
-            html_path = saved.with_suffix('.html')
-            figure.write_html(str(html_path), include_plotlyjs='cdn')
-            raise RuntimeError(
-                f'PNG export failed ({error}). Interactive HTML saved: {html_path}'
-            ) from error
+        figure.write_image(str(saved), scale=scale)
+        print(f'Saved plot: {saved}', flush=True)
         return saved
 
 

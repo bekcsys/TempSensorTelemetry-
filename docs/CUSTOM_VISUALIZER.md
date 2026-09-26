@@ -1,4 +1,4 @@
-[TempSensor](../../README.md) › [SensorDataCollector](../README.md) › Custom Visualizer
+[TempSensor](../README.md) › Custom Visualizer
 
 # Custom visualizer (Plotly PNG)
 
@@ -28,7 +28,7 @@ When you stop the stack, the publisher **stops reading**, builds the PNG from th
 **Recommended on the Pi** (plot on the host — most reliable):
 
 ```bash
-cd ~/Projects/TempSensor/SensorDataCollector
+cd ~/Projects/TempSensor
 make stopReadSensor
 ```
 
@@ -57,7 +57,7 @@ Use this any time you want a **new PNG** from the latest CSV (no need to stop th
 Reads the newest `exports/*.csv`, writes a matching PNG:
 
 ```bash
-cd ~/Projects/TempSensor/SensorDataCollector
+cd ~/Projects/TempSensor
 ./scripts/plot_latest_csv.sh --presentation --output-auto
 ```
 
@@ -70,7 +70,7 @@ Run the same command. **No Docker rebuild** needed for host-side plots.
 Rebuild the publisher, then stop the stack:
 
 ```bash
-cd ~/Projects/TempSensor/SensorDataCollector
+cd ~/Projects/TempSensor
 docker compose up -d --build --force-recreate mqtt-publisher
 make stopReadSensor
 ```
